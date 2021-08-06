@@ -20,7 +20,7 @@ class PostController extends Controller
             'name' => 'Ranus',
             'active' => 'posts',
             // 'posts' => Post::latest();
-            'posts' => Post::latest()->get()
+            'posts' => Post::latest()->paginate(7)->withQueryString()
         ]);
     }
 
