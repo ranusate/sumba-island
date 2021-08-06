@@ -18,13 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('post', [
-        'title' => 'Home',
-        'active' => 'home',
-        'name' => 'Ranus'
-    ]);
-});
+Route::get('/', [PostController::class, "index"]);
+
 
 Route::get('/about', function () {
     return view('about', ['title' => 'About', 'name' => 'Ranus', 'email' => 'ranusate19@gmail.com',
