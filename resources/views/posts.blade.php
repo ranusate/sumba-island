@@ -5,12 +5,20 @@
 
 <div class="row justify-content-center mb-3">
     <div class="col-md-6">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Serach..">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Button</button>
+        <form action="/posts">
+            @if (request('category'))
+            <input type="hidden" name="category" value="{{request('category')}}">
+            @endif
+            @if (request('author'))
+            <input type="hidden" name="author" value="{{request('author')}}">
+            @endif
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search.." value="{{request('search')}}" name="search">
+                <div class="input-group-append">
+                    <button class="btn btn-dark" type="submit">Button</button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -20,12 +28,12 @@
     <div class="card-body text-center">
         <h3 class="card-title"><a href="/post/{{ $posts[0]->slug }}" class="text-decoration-none  text-dark ">{{ $posts[0]->title }}</a></h3>
         <p>
-            <small class="text-muted">By. <a href="/author/{{ $posts[0]->user->username }}" class="text-decoration-none ">{{ $posts[0]->user->name }} </a> in
-                <a href='/categories/{{ $posts[0]->category->slug}}' class="text-decoration-none"> {{$posts[0]->category->name}}</a>
+            <small class="text-muted">By. <a href="/posts?author={{ $posts[0]->user->username }}" class="text-decoration-none ">{{ $posts[0]->user->name }} </a> in
+                <a href='/posts?category={{ $posts[0]->category->slug}}' class="text-decoration-none"> {{$posts[0]->category->name}}</a>
             </small> {{ $posts[0]->created_at->diffForHumans() }}
         </p>
         <p class="card-text">{{ $posts[0]->title }}</p>
-        <a href="/post/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read More..</a>
+        <a href="/post/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-dark">Read More..</a>
     </div>
 </div>
 <div class="container">
@@ -33,18 +41,20 @@
         @foreach ($posts->skip(1) as $post )
         <div class="col-md-4 mb-3">
             <div class="card">
-                <div class="positon-absolute px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7);"> <a href='/categories/{{ $post->category->slug}}' class="text-decoration-none text-white">{{$post->category->name}}</a></div>
-                <img class=" card-img-top" src="https://source.unsplash.com/500x400?{{$post->category->name}}" alt="{{$posts[0]->category->name}}">
+                <div class="positon-absolute px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7);">
+                    <a href='/posts?category={{ $post->category->slug}}' class="text-decoration-none text-white">{{$post->category->name}}</a>
+                </div>
+                <img class=" card-img-top" src="https://source.unsplash.com/500x400?{{$post->category->name}}" alt="{{$post->category->name}}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $post['title'] }}</h5>
                     <p>
-                        <small class="text-muted">By. <a href="/author/{{ $posts[0]->user->username }}" class="text-decoration-none ">{{ $post->user->name }}</a>
-                            {{$posts[0]->category->name}}
+                        <small class="text-muted">By. <a href="posts?author={{ $post->user->username }}" class="text-decoration-none ">{{ $post->user->name }}</a> in
+                            <a href='/posts?category={{$post->category->slug}}' class="text-decoration-none"> {{$post->category->name}}</a>
                         </small>
                         {{ $post->created_at->diffForHumans() }}
                     </p>
                     <p class="card-text">{{$post->excerpt}}</p>
-                    <a href="/post/{{ $posts[0]->slug }}" class="btn btn-primary">Raad More</a>
+                    <a href="/post/{{ $posts[0]->slug }}" class="btn btn-dark">Raad More</a>
                 </div>
             </div>
         </div>
@@ -57,4 +67,8 @@
 @endif
 
 
+<div class="d-flex justify-content-center">
+    {{ $posts->links() }}
+
+</div>
 @endsection
