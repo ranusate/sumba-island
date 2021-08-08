@@ -127,7 +127,7 @@
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © {{ date('Y') }} Copyright:
-            Build with <i class="fas fa-heart" style="color: red;"></i> and <i class="fas fa-coffee"></i> By @<a class="text-reset fw-bold" href="https://www.instagram.com/ranus_candra/"> Ranus Ate</a>
+            Build with <i class="fas fa-heart" style="color: red;"></i> and <i class="fas fa-coffee"></i> By <a class="text-reset fw-bold" href="https://www.instagram.com/ranus_candra/">@Ranus Ate</a>
         </div>
         <!-- Copyright -->
     </footer>
