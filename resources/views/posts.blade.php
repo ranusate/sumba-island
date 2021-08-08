@@ -15,7 +15,7 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search.." value="{{request('search')}}" name="search">
                 <div class="input-group-append">
-                    <button class="btn btn-dark" type="submit">Button</button>
+                    <button class="btn btn-dark" type="submit">Search</button>
                 </div>
             </div>
         </form>
@@ -68,7 +68,7 @@
 
 
 <div class="d-flex justify-content-center">
-    {{ $posts->links() }}
+    {{ $posts->links('pagination::bootstrap-4') }}
 
 </div>
 @endsection
