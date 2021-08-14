@@ -6,13 +6,18 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-
-
     public function index()
     {
-        return view('login/index', [
-            'title' => 'Login',
-            'active' => 'login',
+        return view('login.index', [
+            'title' => 'Register',
+            'active' => 'register'
+        ]);
+    }
+    public function indexs()
+    {
+        return view('login.index', [
+            'title' => 'Register',
+            'active' => 'register'
         ]);
     }
 }
