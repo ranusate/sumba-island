@@ -27,7 +27,7 @@ class PostController extends Controller
             $title = $user->name;
         }
         return view('posts', [
-            'title' => 'All Post ' . $title,
+            'title' => 'Postingan' . $title,
             'name' => 'Ranus',
             'active' => 'posts',
             // 'posts' => Post::latest();
@@ -48,7 +48,7 @@ class PostController extends Controller
             'post',
             [
                 'active' => 'posts',
-                'title' => 'Single Post',
+                'title' => 'Postingan',
                 'post' => $post
             ]
         );
