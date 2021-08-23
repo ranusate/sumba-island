@@ -46,7 +46,7 @@
                             <i class="fas fa-gem me-3"></i>Nanu Group
                         </h6>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, commodi.
+                            What are you waiting for, Let's get together and play together!
                         </p>
                     </div>
                     <!-- Grid column -->
