@@ -22,7 +22,6 @@ Route::get('/', [PostController::class, "index"]);
 Route::get('/about', function () {
     return view('about', [
         'title' => 'About', 'name' => 'Ranus', 'email' => 'ranusate19@gmail.com',
-        'active' => 'about',
         'image' => 'ranus.png'
     ]);
 });
@@ -30,8 +29,7 @@ Route::get('/posts', [PostController::class, "index"]);
 Route::get('/post/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function () {
     return view('categories', [
-        'title' => "Post",
-        'active' => 'categories',
+        'title' => "Categories",
         'categories' => Category::all()
     ]);
 });
