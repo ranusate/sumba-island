@@ -32,20 +32,20 @@ class DatabaseSeeder extends Seeder
         // Category::factory(10)->create();
 
         Category::create([
-            'name' => "Web Programming",
-            'slug' => 'web-programming'
+            'name' => "Sumba Timur",
+            'slug' => 'sumba-timur'
         ]);
         Category::create([
-            'name' => "Web Design",
-            'slug' => 'web-design'
+            'name' => "Sumba Tengah",
+            'slug' => 'sumba-tengah'
         ]);
         Category::create([
-            'name' => "Personal",
-            'slug' => 'personal'
+            'name' => "Sumba Barat",
+            'slug' => 'sumba-barat'
         ]);
         Category::create([
-            'name' => "Island",
-            'slug' => 'island'
+            'name' => "Sumba Barat Daya",
+            'slug' => 'sumba-barat-daya'
         ]);
         Category::create([
             'name' => "culture",
