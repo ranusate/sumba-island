@@ -12,16 +12,16 @@
                        aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('about') ? 'active' :'' }}"
-                       href="/about">About</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('posts') ? 'active' :'' }}"
                        href="/posts">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link  {{ \Illuminate\Support\Facades\Request::is('categories') ? 'active' :'' }}"
                        href="/categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('about') ? 'active' :'' }}"
+                       href="/about">About</a>
                 </li>
             </ul>
 
