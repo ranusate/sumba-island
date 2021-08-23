@@ -21,7 +21,7 @@
 
 <body>
     @include('layouts.__partial.navbar')
-    <div class="container mt-4">
+    <div class="container mt-0">
         @yield('container')
     </div>
 
