@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 
 class PostController extends Controller
 {
@@ -13,7 +16,7 @@ class PostController extends Controller
     /**
      * Show all of the post for the application.
      *
-     * @return void
+     * @return Application|Factory|View
      */
     public function index()
     {
@@ -39,8 +42,8 @@ class PostController extends Controller
     /**
      * show of the post by param.
      *
-     * @param  mixed $post
-     * @return void
+     * @param mixed $post
+     * @return Application|Factory|View
      */
     public function show(Post $post)
     {
@@ -48,7 +51,7 @@ class PostController extends Controller
             'post',
             [
                 'active' => 'posts',
-                'title' => 'Postingan',
+                'title' => 'Posting',
                 'post' => $post
             ]
         );

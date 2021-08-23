@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -44,13 +45,21 @@ Route::get('/categories', function () {
 
 // Route::get('/author/{user:username}', function (User $user) {
 //     return view('posts', [
-//         'active' => 'abaout',
+//         'active' => 'about',
 //         'posts' => $user->posts->load('category', 'user'),
 //     ]);
 // });
 
 
-// Route::get('/login', [LoginController::class, "index"]);
-Route::get('/register', [RegisterController::class, "index"]);
-Route::get('/logins', [RegisterController::class, "indexs"]);
+Route::get('/auth', [LoginController::class, "index"])->name('login')->middleware('guest');
+Route::post('/auth', [LoginController::class, "authenticate"]);
+Route::post('/logout', [LoginController::class, "logout"]);
+
+
+Route::get('/register', [RegisterController::class, "index"])->middleware('guest');
 Route::post('/register', [RegisterController::class, "store"]);
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');

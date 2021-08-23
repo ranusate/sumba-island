@@ -5,6 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Clockwork\Request\Request;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -16,22 +21,27 @@ class Post extends Model
     protected $with = ['user', 'category'];
 
 
-
     /**
      * category
      *
-     * @return void
+     * @return BelongsTo
      */
-    public function category()
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     *
+     * To query by scope filter
+     * @param $query
+     * @param array $filter
+     */
     public function scopeFilter($query, array $filter)
     {
         // if ($filter['search'] ?? false) {
@@ -40,7 +50,7 @@ class Post extends Model
         // }
 
         $query->when($filter['search'] ?? false, function ($query, $search) {
-            return  $query->where('title', 'like', '%' . $search . '%')
+            return $query->where('title', 'like', '%' . $search . '%')
                 ->orWhere('body', 'like', '%' . $search . '%');
         });
 
@@ -54,5 +64,29 @@ class Post extends Model
                 $query->where('username', $author);
             });
         });
+    }
+
+    /**
+     * Handle an authentication attempt.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function authenticate(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
     }
 }

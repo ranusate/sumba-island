@@ -16,14 +16,6 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function indexs()
-    {
-        return view('login.index', [
-            'title' => 'Login',
-            'active' => 'login'
-        ]);
-    }
-
     public function store(Request $request)
     {
         $validateData =  $request->validate([
@@ -32,9 +24,11 @@ class RegisterController extends Controller
             'email' => 'required|email:rfc,dns|min:3|max:255|unique:users',
             'password' => 'required|min:3|max:255',
         ]);
-        $validateData['password'] = Hash::make($request->username);
-        $request->session()->flash('success', 'Register successfull! Please login');
+        if (isset($request->password)) {
+            $validateData['password'] = Hash::make($request->password);
+        }
+        $request->session()->flash('success', 'Register successful! Please login');
         User::create($validateData);
-        return redirect('/logins');
+        return redirect('/auth');
     }
 }
