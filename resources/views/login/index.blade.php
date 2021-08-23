@@ -71,7 +71,7 @@
                                 <span class="ml-auto"><a href="/register"
                                                          class="register text-decoration-none">Register</a></span>
                             </div>
-                            <input type="button" value="Log In" class="btn text-white btn-block btn-primary">
+                            <input type="submit" value="Log In" class="btn text-white btn-block btn-primary">
                             <span class="d-block text-left my-4 text-muted"> or sign in with</span>
 
                             <div class="social-login">
