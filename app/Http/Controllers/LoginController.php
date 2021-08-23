@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -32,7 +33,7 @@ class LoginController extends Controller
      *
      * To authenticate user login.
      *
-     * @param Request $request
+     * @param Request $request To store the request.
      * @return RedirectResponse
      */
     public function authenticate(Request $request): RedirectResponse
@@ -50,6 +51,13 @@ class LoginController extends Controller
         ]);
     }
 
+    /**
+     *
+     * To proses logout.
+     *
+     * @param Request $request To store the request
+     * @return Application|RedirectResponse|Redirector
+     */
     public function logout(Request $request)
     {
         Auth::logout();

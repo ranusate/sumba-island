@@ -10,6 +10,7 @@ use App\Models\Post;
 
 /**
  * @method static create(array $validateData)
+ * @method static firstWhere(string $string, array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Request|string|null $request)
  */
 class User extends Authenticatable
 {

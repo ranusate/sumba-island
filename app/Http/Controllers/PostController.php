@@ -30,11 +30,10 @@ class PostController extends Controller
             $title = $user->name;
         }
         return view('posts', [
-            'title' => 'Postingan' . $title,
+            'title' => 'Posting' . $title,
             'name' => 'Ranus',
-            'active' => 'posts',
             // 'posts' => Post::latest();
-            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(7)->withQueryString()
+            'posts' => Post::latest()->filter(request(['search', 'category', 'author']))->paginate(10)->withQueryString()
         ]);
     }
 
@@ -42,7 +41,7 @@ class PostController extends Controller
     /**
      * show of the post by param.
      *
-     * @param mixed $post
+     * @param mixed $post To store the Post model
      * @return Application|Factory|View
      */
     public function show(Post $post)
@@ -50,7 +49,6 @@ class PostController extends Controller
         return view(
             'post',
             [
-                'active' => 'posts',
                 'title' => 'Posting',
                 'post' => $post
             ]

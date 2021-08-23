@@ -11,11 +11,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @method static latest()
+ * @method static where(string $string, $id)
+ */
 class Post extends Model
 {
     use HasFactory;
 
-    // protected $fillable = ['title', 'excerpt', 'body'];
+    // protected $fallible = ['title', 'excerpt', 'body'];
     protected $guarded = ['id'];
 
     protected $with = ['user', 'category'];
@@ -88,5 +92,11 @@ class Post extends Model
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+
     }
 }
