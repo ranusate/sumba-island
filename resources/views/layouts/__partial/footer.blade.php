@@ -1,18 +1,18 @@
-<div class="container">
+<div>
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted">
+    <footer class="text-center text-lg-start bg-light text-muted bg-dark mt-4">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
             <div class="me-5 d-none d-lg-block">
-                <!-- <span>Get connected with us on social networks:</span> -->
+                <span>Get connected with us on social networks:</span>
             </div>
             <!-- Left -->
 
             <!-- Right -->
-            <!-- <div>
+            <div class="text-light">
                 <a href="" class="me-4 text-reset">
-                    <i class="cib-facebook">Fb</i>
+                    <i class="fab fa-facebook"></i>
                 </a>
                 <a href="" class="me-4 text-reset">
                     <i class="fab fa-twitter"></i>
@@ -29,7 +29,13 @@
                 <a href="" class="me-4 text-reset">
                     <i class="fab fa-github"></i>
                 </a>
-            </div> -->
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
             <!-- Right -->
         </section>
         <!-- Section: Social media -->
@@ -58,7 +64,8 @@
                             Follow Me
                         </h6>
                         <p>
-                            <a href="https://www.facebook.com/profile.php?id=100005464247866" class="text-decoration-none text-reset">
+                            <a href="https://www.facebook.com/profile.php?id=100005464247866"
+                               class="text-decoration-none text-reset">
                                 <i class="fab fa-facebook"> Facebook</i>
 
                             </a>
@@ -127,7 +134,9 @@
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © {{ date('Y') }} Copyright:
-            Build with <i class="fas fa-heart" style="color: red;"></i> and <i class="fas fa-coffee"></i> By <a class="text-reset fw-bold text-decoration-none" href="https://www.instagram.com/ranus_candra/">Ranus Ate</a>
+            Build with <i class="fas fa-heart" style="color: red;"></i> and <i class="fas fa-coffee"></i> By <a
+                    class="text-reset fw-bold text-decoration-none" href="https://www.instagram.com/ranus_candra/">Ranus
+                Ate</a>
         </div>
         <!-- Copyright -->
     </footer>

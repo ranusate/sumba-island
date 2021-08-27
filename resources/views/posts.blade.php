@@ -64,7 +64,7 @@
 @else
 <p class="text-center fs-4">No post Found</p>
 @endif
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mb-lg-3">
     {{ $posts->links('pagination::bootstrap-4') }}
 
 </div>
