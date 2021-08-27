@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 /**
  * @method static latest()
@@ -17,14 +18,26 @@ use Illuminate\Support\Facades\Auth;
  */
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     // protected $fallible = ['title', 'excerpt', 'body'];
     protected $guarded = ['id'];
 
     protected $with = ['user', 'category'];
 
-
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function Sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
     /**
      * category
      *
@@ -97,6 +110,5 @@ class Post extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
-
     }
 }

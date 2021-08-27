@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{\Illuminate\Support\Facades\Request::is('dashboard/post')? 'active': ''}}" href="/dashboard/post">
+                <a class="nav-link {{\Illuminate\Support\Facades\Request::is('dashboard/post*')? 'active': ''}}" href="/dashboard/post">
                     <span data-feather="file-text"></span>
                     My Post
                 </a>

@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">My Post, {{ auth()->user()->name }}</h1>
     </div>
-
+    <a href="/dashboard/post/create" class="btn btn-primay btn-primary mb-4"> Create new post</a>
     <div class="table-responsive col-lg-8">
         <table class="table table-striped table-sm">
             <thead>
