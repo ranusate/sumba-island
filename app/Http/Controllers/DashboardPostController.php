@@ -9,7 +9,10 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Auth;
+
 class DashboardPostController extends Controller
 {
     /**
@@ -41,11 +44,25 @@ class DashboardPostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Request
      */
-    public function store(Request $request): Request
+    public function store(Request $request)
     {
-        return $request;
+
+        $validate = $request->validate(
+            [
+                'title' => 'required|max:255',
+                'slug' => 'required|min:3|max:255|unique:posts',
+                'category_id' => 'required',
+                'body' => 'required'
+            ]
+        );
+
+        $validate['user_id'] = Auth()->user()->id;
+        $validate['excerpt'] = Str::limit(strip_tags($request->body), 20);
+        if ($validate) {
+            Post::create($validate);
+        }
+        return redirect('dashboard/post')->with('success', 'New post has ben added');
     }
 
     /**
