@@ -81,12 +81,13 @@ class DashboardPostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\post $post
-     * @return post
      */
-    public function edit(Post $post): post
+    public function edit(Post $post)
     {
-        return $post;
+        return view('dashboard.post.create', [
+            'categories' => Category::all(),
+            'post' => $post
+        ]);
     }
 
     /**
@@ -94,22 +95,38 @@ class DashboardPostController extends Controller
      *
      * @param Request $request
      * @param \App\Models\post $post
-     * @return Request
      */
-    public function update(Request $request, post $post): Request
+    public function update(Request $request, post $post)
     {
-        return $request;
+        $rules =
+            [
+                'title' => 'required|max:255',
+                'category_id' => 'required',
+                'body' => 'required'
+            ];
+        if ($request->slug != $post->slug) {
+            $rules['slug'] = 'required|min:3|max:255|unique:posts';
+        }
+        $validateData  = $request->validate($rules);
+
+
+        $validateData['user_id'] = Auth()->user()->id;
+        $validateData['excerpt'] = Str::limit(strip_tags($request->body), 20);
+        if ($validateData) {
+            Post::where('id', $post->id)
+                ->update($validateData);
+        }
+        return redirect('dashboard/post')->with('update', 'Post has ben updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\post $post
-     * @return post
      */
-    public function destroy(Post $post): post
+    public function destroy(Post $post)
     {
-        return $post;
+        Post::destroy($post->id);
+        return redirect('dashboard/post')->with('delete', 'Post has been delete!');
     }
 
     public function checkSlug(Request  $request): JsonResponse

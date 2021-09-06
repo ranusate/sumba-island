@@ -49,3 +49,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/post/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
+
+Route::get('/', function(){
+    return view('home' ,[
+
+        'title' => 'Home'
+    ]);
+});
