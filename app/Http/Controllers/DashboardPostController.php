@@ -87,7 +87,7 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('dashboard.post.create', [
+        return view('dashboard.post.update', [
             'categories' => Category::all(),
             'post' => $post
         ]);
