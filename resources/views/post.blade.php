@@ -8,8 +8,13 @@
             <p>Posting By. <a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }} </a> in
                 <a href='/posts?category={{ $post->category->slug}}' class="text-decoration-none"> {{$post->category->name}}</a>
             </p>
-
-            <img src="https://source.unsplash.com/1200x400?{{$post->category->name}}" alt="{{$post->category->name}}" class="img-fluid">
+            <div class="img" style="max-height:350px; overflow: hidden; background-image: cover;">
+                @if ($post->image)
+                <img src="{{asset('storage/'. $post->image)}}" alt="">
+                @else
+                <img src="https://source.unsplash.com/1200x400?{{$post->category->name}}" alt="{{$post->category->name}}" class="img-fluid">
+                @endif
+            </div>
 
             <article class="my-3 fs-4">
                 {!! $post->body !!}
