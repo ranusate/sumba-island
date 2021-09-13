@@ -54,7 +54,7 @@ class DashboardPostController extends Controller
                 'slug' => 'required|min:3|max:255|unique:posts',
                 'category_id' => 'required',
                 'body' => 'required',
-                'image' => 'image|file|max:1024',
+                'image' => 'image|file|max:10024',
             ]
         );
         if ($request->file('image')) {
