@@ -4,7 +4,7 @@
     <h1 class="h2">Create new post</h1>
 </div>
 <div class="col-md-8">
-    <form action="/dashboard/post" method="POST" enctype="multipart/form-data">
+    <form action="/dashboard/post" method="POST" enctype="multipart/form-data" id="myForm">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -62,12 +62,21 @@
             </div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary mb-3">Create Post</button>
+        <button class="btn btn-primary" type="button">
+            Create Post
+        </button>
+        <!-- <button type="submit" class="btn btn-primary mb-3">Create Post</button> -->
     </form>
 </div>
-
-
 <script>
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...`;
+        btn.setAttribute('disabled', true);
+        document.querySelector('#myForm').submit();
+    })
     const title = document.querySelector('#title')
     const slug = document.querySelector('#slug')
     title.addEventListener('change', function() {

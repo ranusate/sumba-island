@@ -9,6 +9,11 @@
     {{ session('success') }}
 </div>
 @endif
+@if (session()->has('update'))
+<div class="alert alert-success col-8" role="alert">
+    {{ session('update') }}
+</div>
+@endif
 @if (session()->has('delete'))
 <div class="alert alert-success col-8" role="alert">
     {{ session('delete') }}
