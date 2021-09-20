@@ -29,7 +29,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {{auth()->user()->name}}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu mt-3" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="/dashboard" target="_blank"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
                         <li>
                             <hr class="dropdown-divider">
