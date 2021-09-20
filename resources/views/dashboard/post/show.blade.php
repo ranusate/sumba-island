@@ -18,13 +18,12 @@
                 @method('delete')
                 @csrf
                 <button class="btn btn-danger" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span>Delete</button>
-
             </form>
-            <div class="img" style="max-height:350px; overflow: hidden; background-image: cover;">
+            <div class="img img-fluid mt-3" style="max-height:350px; overflow: hidden; background-image: cover;">
                 @if ($post->image)
                 <img src="{{asset('storage/'. $post->image)}}" alt="">
                 @else
-                <img src="https://source.unsplash.com/1200x400?{{$post->category->name}}" alt="{{$post->category->name}}" class="img-responsive">
+                <img src="https://source.unsplash.com/1200x400?{{$post->category->name}}" alt="{{$post->category->name}}" class="img-responsive mt-5" >
                 @endif
             </div>
 

@@ -5,7 +5,7 @@
 </div>
 <div class="col-md-8">
 
-    <form action="/dashboard/post/{{$post->slug}}" method="POST">
+    <form action="/dashboard/post/{{$post->slug}}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         <div class="mb-3">
@@ -26,6 +26,7 @@
             </div>
             @enderror
         </div>
+
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
             <select class="form-select @error('category_id') is-invalid @enderror" aria-label="Default select example" id="category_id" name="category_id">
@@ -45,6 +46,21 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="hidden" name="imageOld" id="imageOld" value="{{$post->image}}">
+            @if ($post->image)
+            <img src="{{asset('storage/' . $post->image)}}" class="img-fluid img-preview mb-3 col-sm-3 d-block">
+            @else
+            <img class="img-fluid img-preview mb-3 col-sm-3">
+            @endif
+            <input type="file" class="form-control  @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage(this)">
+            @error('image')
+            <div id="" class="invalid-feedback">
+                {{ $message   }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3">
             <label for="body" class="form-label @error('body') is-invalid @enderror">Body</label>
             <input id="body" type="hidden" name="body" value="{{old('body', $post->body)}}">
             <trix-editor input="body"></trix-editor>
@@ -54,7 +70,7 @@
             </div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Create Post</button>
+        <button type="submit" class="btn btn-primary mb-5">Create Post</button>
     </form>
 </div>
 
@@ -70,5 +86,14 @@
     document.addEventListener('trix-file-accept', function(e) {
         e.preventDefault();
     })
+
+    function previewImage(input) {
+        const imagePreview = document.querySelector('.img-preview')
+        imagePreview.style.display = 'block';
+        let file = input.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => imagePreview.src = reader.result;
+    }
 </script>
 @endsection

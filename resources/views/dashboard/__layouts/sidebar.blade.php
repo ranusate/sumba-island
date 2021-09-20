@@ -16,7 +16,7 @@
 
             <li class="nav-item">
                 <hr>
-                <a class="nav-link {{\Illuminate\Support\Facades\Request::is('/')? 'active': ''}}" aria-current="page" href="/" target="_blank">
+                <a class="nav-link {{\Illuminate\Support\Facades\Request::is('/')? 'active': ''}}" aria-current="page" href="/">
                     <span data-feather="globe"></span>
                     Back to website
                 </a>

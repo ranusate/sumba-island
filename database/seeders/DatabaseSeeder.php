@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'unique'
         ]);
 
-        Post::factory(100)->create();
+        Post::factory(10)->create();
 
         // Post::create([
         //     'title' => 'Judul Pertama',

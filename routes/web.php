@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -56,3 +57,5 @@ Route::get('/', function(){
         'title' => 'Home'
     ]);
 });
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
