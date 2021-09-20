@@ -16,7 +16,7 @@ class CategoryFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
+     *m
      * @return array
      */
     public function definition()

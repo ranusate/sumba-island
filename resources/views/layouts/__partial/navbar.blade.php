@@ -1,59 +1,53 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="/">{{env('APP_NAME')}}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' :'' }}"
-                       aria-current="page" href="/">Home</a>
+                    <a class="nav-link {{ \Illuminate\Support\Facades\Request::is('/') ? 'active' :'' }}" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('posts') ? 'active' :'' }}"
-                       href="/posts">Blog</a>
+                    <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('posts') ? 'active' :'' }}" href="/posts">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{ \Illuminate\Support\Facades\Request::is('categories') ? 'active' :'' }}"
-                       href="/categories">Categories</a>
+                    <a class="nav-link  {{ \Illuminate\Support\Facades\Request::is('categories') ? 'active' :'' }}" href="/categories">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('about') ? 'active' :'' }}"
-                       href="/about">About</a>
+                    <a class="nav-link  {{\Illuminate\Support\Facades\Request::is('about') ? 'active' :'' }}" href="/about">About</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav ms-auto">
                 @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Welcome back, {{auth()->user()->name}}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/dashboard" target="_blank"><i
-                                            class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <form action="/logout" method="POST">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>
-                                        Logout
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                <li class="nav-item dropdown">
+                    @if (Auth::user()->avatar)
+                    <img src="{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" srcset="" style="border: 1px solid #ccc; border-radius: 50px; width: 40px; height:auto; float:left; margin-right:9px">
+                    @endif
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{auth()->user()->name}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/dashboard" target="_blank"><i class="bi bi-layout-text-window-reverse"></i> My Dashboard</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
                 @else
-                    <li class="nav-item">
-                        <a href="/auth"
-                           class="nav-link  {{ \Illuminate\Support\Facades\Request::is('login' )? 'active' :'' }}"><i
-                                    class="bi bi-box-arrow-in-right"></i> Login</a>
-                    </li>
+                <li class="nav-item">
+                    <a href="/auth" class="nav-link  {{ \Illuminate\Support\Facades\Request::is('login' )? 'active' :'' }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                </li>
                 @endauth
             </ul>
         </div>

@@ -34,6 +34,12 @@ return [
         'client_secret' => 'erf2POAvMhGKX4FNRB0SxSIu',
         'redirect' => 'http://localhost:9000/auth/google/callback',
     ],
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => 'http://localhost:9000/auth/google/callback',
+
+    ],
 
 
 ];

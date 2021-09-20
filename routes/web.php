@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\LoginControllers;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -51,11 +51,12 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/post/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
 
-Route::get('/', function(){
-    return view('home' ,[
+Route::get('/', function () {
+    return view('home', [
 
         'title' => 'Home'
     ]);
 });
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('auth/google', [LoginControllers::class, 'redirectToProvider']);
+Route::get('auth/google/callback', [LoginControllers::class, 'handleProviderCallback']);
