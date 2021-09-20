@@ -70,13 +70,13 @@
             </div>
             @enderror
         </div>
-        <button type="button" class="btn btn-primary mb-5">Update Post</button>
+        <button type="button" class="btn btn-primary mb-5 btns">Update Post</button>
     </form>
 </div>
 
 
 <script>
-    const btn = document.querySelector('.btn');
+    const btn = document.querySelector('.btns');
     btn.addEventListener('click', function(e) {
         e.preventDefault();
         btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

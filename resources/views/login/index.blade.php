@@ -72,7 +72,7 @@
                                     </label>
                                     <span class="ml-auto"><a href="/register" class="register text-decoration-none">Register</a></span>
                                 </div>
-                                <button class="btn text-white btn-block btn-primary" type="button"> Login
+                                <button class="btn text-white btn-block btn-primary btns" type="button"> Login
 
                                 </button>
                                 <span class="d-block text-left my-4 text-muted"> or sign in with</span>
@@ -107,7 +107,7 @@
     <script src="/login/js/bootstrap.min.js"></script>
     <script src="/login/js/main.js"></script>
     <script>
-        const btn = document.querySelector('.btn');
+        const btn = document.querySelector('.btns');
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>

@@ -85,7 +85,7 @@
                                         <a href="/auth" class="forgot-pass text-decoration-none">Login</a>
                                     </span>
                                 </div>
-                                <button class="btn text-white btn-block btn-primary" type="button"> Register
+                                <button class="btn text-white btn-block btn-primary btns" type="button"> Register
 
                                 </button>
                                 <span class="d-block text-left my-4 text-muted"> or sign in with</span>

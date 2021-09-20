@@ -62,14 +62,14 @@
             </div>
             @enderror
         </div>
-        <button class="btn btn-primary" type="button">
+        <button class="btn btn-primary btns" type="button">
             Create Post
         </button>
         <!-- <button type="submit" class="btn btn-primary mb-3">Create Post</button> -->
     </form>
 </div>
 <script>
-    const btn = document.querySelector('.btn');
+    const btn = document.querySelector('.btns');
     btn.addEventListener('click', function(e) {
         e.preventDefault();
         btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
