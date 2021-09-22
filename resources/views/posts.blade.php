@@ -65,7 +65,7 @@
                         {{ $post->created_at->diffForHumans() }}
                     </p>
                     <p class="card-text">{{$post->excerpt}}</p>
-                    <a href="/post/{{ $posts[0]->slug }}" class="btn btn-dark">Raad More</a>
+                    <a href="/post/{{ $post->slug }}" class="btn btn-dark">Raad More</a>
                 </div>
             </div>
         </div>
