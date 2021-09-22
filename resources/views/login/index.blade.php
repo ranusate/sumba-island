@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="form-group last mb-4">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control @error('email') is-invalid @enderror" name="password" required>
+                                    <input type="password" class="form-control @error('email') is-invalid @enderror" name="password" id="password" required>
                                     @error('password')
                                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                         {{ $message   }}
@@ -66,8 +66,8 @@
                                 </div>
 
                                 <div class="d-flex mb-5 align-items-center">
-                                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                                        <input type="checkbox" checked="checked" />
+                                    <label class="control control--checkbox mb-0"><span class="caption">Show Password</span>
+                                        <input type="checkbox" id="check" />
                                         <div class="control__indicator"></div>
                                     </label>
                                     <span class="ml-auto"><a href="/register" class="register text-decoration-none">Register</a></span>
@@ -114,6 +114,18 @@
         Loading...`;
             btn.setAttribute('disabled', true);
             document.querySelector('#loginForm').submit();
+        })
+        const checkbox = document.querySelector('#check')
+        checkbox.addEventListener('click', function() {
+            const password = document.querySelector('#password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password'
+            password.setAttribute('type', type)
+            // if (password.getAttribute('type') === "password") {
+            //     password.setAttribute('type', 'text')
+            // } else {
+            //     password.setAttribute('type', 'password')
+            // }
+
         })
     </script>
 </body>
