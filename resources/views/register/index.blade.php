@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group last mb-4">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control is-invalid" name="password">
+                                    <input type="password" class="form-control is-invalid" name="password" id="password" placeholder="">
                                     @error('password')
                                     <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                         {{ $message   }}
@@ -78,7 +78,7 @@
 
                                 <div class="d-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                                        <input type="checkbox" checked="checked" />
+                                        <input type="checkbox" id="showPass" />
                                         <div class="control__indicator"></div>
                                     </label>
                                     <span class="ml-auto">
@@ -128,6 +128,16 @@
         Loading...`;
             btn.setAttribute('disabled', true);
             document.querySelector('#register').submit();
+        })
+
+        const password = document.querySelector('#password');
+        const showPass = document.querySelector('#showPass');
+        showPass.addEventListener('click', function() {
+            if (password.getAttribute('type') === 'password') {
+                password.setAttribute('type', 'text');
+            } else {
+                password.setAttribute('type', 'password');
+            }
         })
     </script>
 </body>
