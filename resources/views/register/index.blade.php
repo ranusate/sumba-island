@@ -77,7 +77,7 @@
                                 </div>
 
                                 <div class="d-flex mb-5 align-items-center">
-                                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                                    <label class="control control--checkbox mb-0"><span class="caption">Show password</span>
                                         <input type="checkbox" id="showPass" />
                                         <div class="control__indicator"></div>
                                     </label>
