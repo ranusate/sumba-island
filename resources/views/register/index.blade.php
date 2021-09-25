@@ -97,7 +97,7 @@
                                     <a href="#" class="twitter">
                                         <span class="icon-twitter mr-3"></span>
                                     </a>
-                                    <a href="#" class="google">
+                                    <a href="auth/google" class="google">
                                         <span class="icon-google mr-3"></span>
                                     </a>
                                 </div>
