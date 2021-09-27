@@ -32,13 +32,13 @@ return [
     'google' => [
         'client_id' => '762849057135-iblmpsmj5rb3lohbp89l9ajbuob85nmo.apps.googleusercontent.com',
         'client_secret' => 'erf2POAvMhGKX4FNRB0SxSIu',
-        'redirect' => 'http://localhost:9000/auth/google/callback',
+        'redirect' => 'http://sumbamarapu.herokuapp.com/auth/google/callback',
     ],
-    'github' => [
-        'client_id' => env('GITHUB_CLIENT_ID'),
-        'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => env('GITHUB_CLIENT_URL', 'http://sumbamarapu.herokuapp.com/auth/google/callback'),
-    ],
+    // 'github' => [
+    //     'client_id' => env('GITHUB_CLIENT_ID'),
+    //     'client_secret' => env('GITHUB_CLIENT_SECRET'),
+    //     'redirect' => env('GITHUB_CLIENT_URL', 'http://sumbamarapu.herokuapp.com/auth/google/callback'),
+    // ],
 
 
 ];
