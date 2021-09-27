@@ -34,10 +34,10 @@ return [
         'client_secret' => 'erf2POAvMhGKX4FNRB0SxSIu',
         'redirect' => 'http://localhost:9000/auth/google/callback',
     ],
-    'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => env('GOOGLE_CLIENT_URL', 'http://sumbamarapu.herokuapp.com/auth/google/callback'),
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => env('GITHUB_CLIENT_URL', 'http://sumbamarapu.herokuapp.com/auth/google/callback'),
     ],
 
 
