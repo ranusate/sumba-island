@@ -1,6 +1,4 @@
-/node_modules
-/public/hot
-/vendor
+
 .env
 .env.backup
 .phpunit.result.cache
@@ -11,3 +9,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+node_modules
