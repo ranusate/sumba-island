@@ -26,7 +26,7 @@
                     @if (Auth::user()->avatar)
                     <img src="{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" srcset="" style="border: 1px solid #ccc; border-radius: 50px; width: 40px; height:auto; float:left; margin-right:9px">
                     @endif
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-reset" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {{auth()->user()->name}}
                     </a>
                     <ul class="dropdown-menu mt-3" aria-labelledby="navbarDropdown">
