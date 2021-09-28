@@ -12,8 +12,6 @@
                 <span data-feather="edit">
                 </span>
                 Edit</a>
-
-
             <form action="/dashboard/post/{{$post->slug}}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
@@ -23,7 +21,7 @@
                 @if ($post->image)
                 <img src="{{asset('storage/'. $post->image)}}" alt="">
                 @else
-                <img src="https://source.unsplash.com/1200x400?{{$post->category->name}}" alt="{{$post->category->name}}" class="img-responsive mt-5" >
+                <img src="https://source.unsplash.com/1200x400?{{$post->category->name}}" alt="{{$post->category->name}}" class="img-responsive mt-5">
                 @endif
             </div>
 

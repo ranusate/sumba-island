@@ -45,6 +45,8 @@
                         <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>
 
                     </form>
+                    <!-- <meta name="csrf-token" content="{{ csrf_token() }}">
+                    <button class="badge bg-danger border-0" onclick="destroy('{{$post->slug}}')"><span data-feather="x-circle"></span></button> -->
                 </td>
             </tr>
             @endforeach
@@ -53,3 +55,25 @@
 </div>
 
 @endsection
+
+<!-- <script>
+    function destroy(slug) {
+        var token = $("meta[name='csrf-token']").attr("content");
+        $.ajax({
+            url: '/dashboard/post/' + slug,
+            type: 'DELETE',
+            data: {
+                "slug": slug,
+                "_token": token,
+            },
+            success: function(response) {
+                read()
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        })
+
+
+    }
+</script> -->
