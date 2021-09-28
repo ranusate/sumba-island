@@ -59,10 +59,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $post['title'] }}</h5>
                     <p>
+                        if($post->user->username){
                         <small class="text-muted">Posting By. <a href="posts?author={{ $post->user->username }}" class="text-decoration-none ">{{ $post->user->name }}</a> in
                             <a href='/posts?category={{$post->category->slug}}' class="text-decoration-none"> {{$post->category->name}}</a>
                         </small>
                         {{ $post->created_at->diffForHumans() }}
+                        }
                     </p>
                     <p class="card-text">{{$post->excerpt}}</p>
                     <a href="/post/{{ $post->slug }}" class="btn btn-dark">Raad More</a>
