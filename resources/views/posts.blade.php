@@ -33,10 +33,12 @@
     <div class="card-body text-center">
         <h3 class="card-title"><a href="/post/{{ $posts[0]->slug }}" class="text-decoration-none  text-dark ">{{ $posts[0]->title }}</a></h3>
         <p>
+            if($posts[0]->user->username){
             <small class="text-muted">Posting By. <a href="/posts?author={{ $posts[0]->user->username }}" class="text-decoration-none ">{{ $posts[0]->user->name }} </a> in
                 <a href='/posts?category={{ $posts[0]->category->slug}}' class="text-decoration-none"> {{$posts[0]->category->name}}</a>
             </small> {{ $posts[0]->created_at->diffForHumans() }}
         </p>
+        }
         <p class="card-text">{{ $posts[0]->title }}</p>
         <a href="/post/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-dark">Read More..</a>
     </div>
