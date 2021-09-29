@@ -32,6 +32,9 @@ class LoginControllers extends Controller
         return redirect('/dashboard');
     }
 
+    /**
+     *Funtion to registen or login user.
+     */
     protected function _registerOrLoginUser($data)
     {
         $user = User::where('email', '=', $data->email)->first();
