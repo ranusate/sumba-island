@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg shadow p-3 mb-5 bg-white rounded ">
     <div class="container">
         <a class="navbar-brand text-reset" href="/">{{env('APP_NAME')}}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarNav">
